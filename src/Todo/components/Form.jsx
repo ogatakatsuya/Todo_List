@@ -21,18 +21,22 @@ const Form = ({ createTodo }) => {
     }
     if (!enteredDate) {
       toast({
-        title: "納期を入力してください",
+        title: "期限を入力してください",
         status: "error",
         duration: 2000,
         isClosable: true,
       });
       return;
     }
+    const dateObject = new Date(enteredDate);
+    const year = dateObject.getFullYear();
+    const month = String(dateObject.getMonth() + 1).padStart(2, '0');
+    const day = String(dateObject.getDate()).padStart(2, '0');
 
     const newTodo = {
       id: Math.floor(Math.random() * 1e5),
       content: enteredTodo,
-      date: enteredDate,
+      date: `${year}/${month}/${day}`,
     };
 
     createTodo(newTodo);
