@@ -27,7 +27,7 @@ const MakeMordal = ({ isOpen, onClose, updatedTodo, setUpdatedTodo, renewTodo, s
                     px={7}
                     type="submit"
                     onClick={() => renewTodo(selectedTodoId)}
-                    >編集</Button>
+                    >更新</Button>
                     </ModalFooter>
                 </ModalContent>
         </Modal>
