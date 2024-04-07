@@ -46,14 +46,13 @@ const Todo = () => {
       }
       return item;
     })
-    debugger;
     setTodos(updatedTodos);
   };
 
   return (
     <VStack p="10" spacing="10">
       <Heading color="blue.200" fontSize="5xl">
-        Reminder
+        ToDoBox
       </Heading>
       <List todos={todos} deleteTodo={deleteTodo} updateTodo={updateTodo} />
       <Form createTodo={createTodo} />

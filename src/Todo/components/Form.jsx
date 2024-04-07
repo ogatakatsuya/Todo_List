@@ -42,7 +42,6 @@ const Form = ({ createTodo }) => {
     createTodo(newTodo);
 
     setEnteredTodo("");
-    setEnteredDate("");
 
     toast({
       title: "新しいタスクを追加しました！",

@@ -1,9 +1,8 @@
-import { VStack, StackDivider, HStack, IconButton, Text, Modal, ModalOverlay,
-ModalContent, ModalHeader, ModalCloseButton, ModalFooter, Button, Input } from "@chakra-ui/react";
+import { VStack, StackDivider, HStack, IconButton, Text } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import { useState } from "react";
+import MakeMordal from "./MakeMordal";
 
-// POINT react-iconsからアイコンをインポート
 import { AiOutlineDelete, AiOutlineForm } from "react-icons/ai";
 
 const List = ({ todos, deleteTodo, updateTodo }) => {
@@ -49,34 +48,8 @@ const List = ({ todos, deleteTodo, updateTodo }) => {
             <IconButton icon={<AiOutlineForm />} isRound onClick={() => openEditModal(todo.id)}>
               編集
             </IconButton>
-              <Modal isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay />
-                  <ModalContent>
-                    <ModalHeader>編集する</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalFooter>
-                    <Input
-                      placeholder="新しいタスク"
-                      _placeholder={{ opacity: "0.3", color: "gray.500" }}
-                      size="lg"
-                      p={3}
-                      bgColor="white"
-                      variant="flushed"
-                      value={updatedTodo}
-                      onChange={(e) => setUpdatedTodo(e.target.value)}
-                    />
-                    <Button
-                      colorScheme="blue"
-                      size="md"
-                      bgColor="white"
-                      variant="outline"
-                      px={7}
-                      type="submit"
-                      onClick={() => renewTodo(selectedTodoId)}
-                    >編集</Button>
-                    </ModalFooter>
-                </ModalContent>
-              </Modal>
+            <MakeMordal isOpen={isOpen} onClose={onClose} updatedTodo={updatedTodo} 
+            setUpdatedTodo={setUpdatedTodo} renewTodo={renewTodo} selectedTodoId={selectedTodoId}/>
             <IconButton 
             onClick={() => complete(todo.id)} 
             icon={<AiOutlineDelete />} 
